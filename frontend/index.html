@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ScamGuard AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="nav-left">
+    <span class="logo">🛡 ScamGuard AI</span>
+  </div>
+  <nav class="nav-right">
+    <button onclick="go('home')">Home</button>
+    <button onclick="go('analyzer')">Analyzer</button>
+    <button onclick="go('workflow')">Workflow</button>
+    <button onclick="go('examples')">Examples</button>
+    <button onclick="go('awareness')">Awareness</button>
+    <button onclick="openSettings()">⚙ Settings</button>
+  </nav>
+</header>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="hero">
+  <h1>ScamGuard AI</h1>
+  <p>An Intelligent AI Agent for Scam Detection & Explanation</p>
+  <span class="sub">Rule-Based System + LLM Reasoning</span>
+
+  <button class="primary-btn" onclick="go('analyzer')">
+    Get Started →
+  </button>
+</section>
+
+<!-- ================= ANALYZER ================= -->
+<section id="analyzer" class="section analyzer">
+  <h2>Analyze Suspicious Message</h2>
+
+  <p class="desc">
+    Paste any SMS, Email, WhatsApp, Instagram or UPI-related message.
+    ScamGuard AI will analyze intent, risk and provide explanation.
+  </p>
+
+  <!-- MESSAGE TYPE -->
+  <div class="type-select">
+    <label><input type="radio" name="type" checked> WhatsApp</label>
+    <label><input type="radio" name="type"> SMS</label>
+    <label><input type="radio" name="type"> Email</label>
+    <label><input type="radio" name="type"> Instagram</label>
+  </div>
+
+  <!-- TEXT AREA -->
+  <textarea id="messageInput"
+    placeholder="Paste suspicious message here..."></textarea>
+
+  <!-- IMAGE UPLOAD (UI READY) -->
+  <div class="upload">
+    <label>📷 Upload Screenshot (optional)</label>
+    <input type="file">
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="action-row">
+    <button class="primary-btn" onclick="analyzeMessage()">Analyze</button>
+    <button class="secondary-btn" onclick="resetAll()">Reset</button>
+    <button class="secondary-btn" onclick="go('home')">Back</button>
+  </div>
+
+  <!-- LOADER -->
+  <div id="loader" class="loader hidden"></div>
+
+  <!-- RESULTS -->
+  <div id="result" class="hidden">
+    <div class="result-box">
+      <h3>⚙ Rule-Based Analysis</h3>
+      <pre id="ruleResult"></pre>
+    </div>
+
+    <div class="result-box">
+      <h3>🤖 AI (LLM) Deep Reasoning</h3>
+      <div id="llmCards" class="llm-cards"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+<section id="workflow" class="section dark">
+  <h2>How ScamGuard AI Works</h2>
+
+  <div class="flow-grid">
+    <div class="flow-step">User Input</div>
+    <div class="flow-step">Text Cleaning</div>
+    <div class="flow-step">Pattern Detection</div>
+    <div class="flow-step">Risk Scoring</div>
+    <div class="flow-step">LLM Reasoning</div>
+    <div class="flow-step">Action Recommendation</div>
+  </div>
+</section>
+
+<!-- ================= EXAMPLES ================= -->
+<section id="examples" class="section">
+  <h2>Common Scam Examples</h2>
+
+  <div class="example-grid">
+    <div class="example red">
+      <h4>Bank Phishing</h4>
+      <p>Your account will be blocked in 24 hours. Click to verify.</p>
+    </div>
+
+    <div class="example yellow">
+      <h4>OTP Scam</h4>
+      <p>Share OTP to receive cashback.</p>
+    </div>
+
+    <div class="example blue">
+      <h4>Job Scam</h4>
+      <p>Pay ₹199 registration fee to confirm job.</p>
+    </div>
+
+    <div class="example green">
+      <h4>UPI Fraud</h4>
+      <p>Approve collect request to receive money.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AWARENESS ================= -->
+<section id="awareness" class="section dark">
+  <h2>Scam Awareness & Safety Tips</h2>
+
+  <ul class="tips">
+    <li>Banks never ask for OTP or PIN</li>
+    <li>Urgency and threats are red flags</li>
+    <li>Verify links on official websites</li>
+    <li>Never approve unknown UPI requests</li>
+    <li>Do not share personal details on messages</li>
+  </ul>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>© 2025 ScamGuard AI</p>
+  <span>Stay Alert. Stay Safe.</span>
+</footer>
+
+<!-- ================= SETTINGS MODAL ================= -->
+<div id="settingsModal" class="modal">
+
+  <div class="modal-box">
+    <h3>⚙ Settings</h3>
+
+    <div class="setting-row">
+      <span>AI Analysis</span>
+      <span class="status on">Enabled</span>
+    </div>
+
+    <div class="setting-row">
+      <span>Theme</span>
+      <span>Dark</span>
+    </div>
+
+    <div class="setting-row">
+      <span>API Status</span>
+      <span class="status on">Connected</span>
+    </div>
+
+    <button class="primary-btn full" onclick="closeSettings()">Close</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
