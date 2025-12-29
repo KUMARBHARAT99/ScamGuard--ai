@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from imapclient import IMAPClient
 
-load_dotenv()  # 🔥 THIS LINE IS THE FIX
+load_dotenv()  #  THIS LINE IS THE FIX like used for read the message by llm
 
 EMAIL = os.getenv("SCAMGUARD_EMAIL")
 PASSWORD = os.getenv("SCAMGUARD_EMAIL_PASS")
